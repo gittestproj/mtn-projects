@@ -19,7 +19,7 @@
            <mkdir dir="${build-dir}"/>
            <javac srcdir="${src-dir}" destdir="${build-dir}">
                <classpath>
-               <pathelement path="${lib-dir}"/>
+               <pathelement path="${lib-dir}/*.jar"/>
                </classpath>
            </javac> 		          
            <echo>Running target compile</echo> 	
