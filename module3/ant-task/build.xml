@@ -1,19 +1,24 @@
 <?xml version="1.0"?> 
 <project name="BuildProject" default="compile">
- 
+
+          <property name="build-dir" value="build"/>
+          <property name="dist-dir" value="dist"/>
+          <property name="src-dir" value="src"/>
+          <property name="lib-dir" value="lib"/>
+
 	   <target name="init"> 
            <echo>Running target init</echo> 	
            </target>
  
            <target name="clean" depends="init">
            <echo>Running target clean</echo> 
-           <delete dir="build" />
-           <delete dir="dist" />	
+           <delete dir="${build-dir}" />
+           <delete dir="${dist-dir}" />	
            </target> 
 		
            <target name="compile" depends="clean">
-           <mkdir dir="build"/>
-           <javac srcdir="src" destdir="build" /> 		          
+           <mkdir dir="${build-dir}"/>
+           <javac srcdir="${src-dir}" destdir="${dist-dir}" classpath="${lib-dir}" /> 		          
            <echo>Running target compile</echo> 	
            </target>
 
