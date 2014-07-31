@@ -1,5 +1,5 @@
 <?xml version="1.0"?> 
-	<project name="BuildProject" default="compile">
+<project name="BuildProject" default="compile">
  
 	   <target name="init"> 
            <echo>Running target init</echo> 	
@@ -11,7 +11,7 @@
            <delete dir="dist" />	
            </target> 
 		
-           <target name="compile" depends=“clean">
+           <target name="compile" depends="clean">
            <mkdir dir="build">
            <javac srcdir="src" destdir="build" /> 		          
            <echo>Running target compile</echo> 	
