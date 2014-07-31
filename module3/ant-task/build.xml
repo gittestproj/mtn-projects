@@ -37,7 +37,7 @@
 
            <target name="mkdist" depends="test">
            <echo>Running target compile</echo>
-           <jar destfile="${fname}-proj.jar" basedir="${build-dir}>
+           <jar destfile="${fname}-proj.jar" basedir="${build-dir}">
        	   </target>
  
 </project>
