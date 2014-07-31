@@ -12,7 +12,7 @@
            </target> 
 		
            <target name="compile" depends="clean">
-           <mkdir dir="build">
+           <mkdir dir="build"/>
            <javac srcdir="src" destdir="build" /> 		          
            <echo>Running target compile</echo> 	
            </target>
