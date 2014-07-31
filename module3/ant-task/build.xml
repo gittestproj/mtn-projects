@@ -7,7 +7,10 @@
           <property name="lib-dir" value="lib"/>
 
 	   <target name="init"> 
-           <echo>Running target init</echo> 	
+           <echo>Running target init</echo>
+           <tstamp>
+           <format property="fname" pattern="dd-MM-yyyy" locale="en,GB"/>
+           </tstamp> 	
            </target>
  
            <target name="clean" depends="init">
@@ -34,6 +37,7 @@
 
            <target name="mkdist" depends="test">
            <echo>Running target compile</echo>
+           <jar destfile="${fname}-proj.jar" basedir="${build-dir}>
        	   </target>
  
 </project>
