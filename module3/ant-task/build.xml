@@ -1,0 +1,28 @@
+<?xml version="1.0"?> 
+	<project name=“BuildProject” default=“compile">
+ 
+	   <target name="init"> 
+           <echo>Running target init</echo> 	
+           </target>
+ 
+           <target name=“clean" depends="init">
+           <echo>Running target clean</echo> 
+           <delete dir="build">
+           <delete dir="dist">	
+           </target> 
+		
+           <target name=“compile" depends=“clean">
+           <mkdir dir="build">
+           <javac srcdir="src" destdir="build"> 		          
+           <echo>Running target compile</echo> 	
+           </target>
+
+           <target name=“test" depends=“compile">                
+           <echo>Running target compile</echo>
+           </target>
+
+           <target name=“mkdist" depends=“test">
+           <echo>Running target compile</echo>
+       	   </target>
+ 
+	</project>
