@@ -5,17 +5,20 @@
           <property name="dist-dir" value="dist"/>
           <property name="src-dir" value="src"/>
           <property name="lib-dir" value="lib"/>
+          <property name="test-dir" value="test"/>
+          <property name="test-build-dir" value="build/test"/>	  
 
 	   <target name="init"> 
            <echo>Running target init</echo>
            <tstamp>
-           <format property="fname" pattern="dd-MM-yyyy" locale="en,GB"/>
+           <format property="date" pattern="dd-MM-yyyy" locale="en,GB"/>
            </tstamp> 	
            </target>
  
            <target name="clean" depends="init">
            <echo>Running target clean</echo> 
            <delete dir="${build-dir}" />
+           <delete dir="${dist-dir}" />
            </target> 
 		
            <target name="compile" depends="clean">
@@ -28,16 +31,35 @@
                 </fileset>
                </classpath>
            </javac> 		          
-           <echo>Running target compile</echo> 	
+           <mkdir dir="${test-build-dir}" />
+           <javac srcdir="${test-dir}" destdir="${test-build-dir}">
+               <classpath>
+               <pathelement path="${lib-dir}"/>
+                <fileset dir="${lib-dir}">
+                <include name="**/*.jar"/>
+                </fileset>
+               </classpath>
+           </javac>
+           <echo>Compiling target</echo> 	
            </target>
 
            <target name="test" depends="compile">                
-           <echo>Running target compile</echo>
+           <echo>Performing unit-test</echo>
+           <junit haltonfailure="yes" printsummary="yes">
+               <classpath>
+               <pathelement path="${lib-dir}"/>
+                <fileset dir="${lib-dir}">
+                <include name="**/*.jar"/>
+                </fileset>
+               </classpath>
+           <test name="com.test.UnitTest.java" outfile="result.txt"/>
+           </junit>
            </target>
 
            <target name="mkdist" depends="test">
-           <echo>Running target compile</echo>
-           <jar destfile="${fname}-proj.jar" basedir="${build-dir}" />
+           <echo>Creating jar artifact</echo>
+           <mkdir dir="${dist-dir}" />
+           <jar destfile="{$dist-dir}/${date}-proj.jar" basedir="${build-dir}" />
        	   </target>
  
 </project>
