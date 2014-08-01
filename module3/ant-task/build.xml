@@ -56,8 +56,8 @@
                </classpath>
            <formatter type="plain"/>
            	<batchtest todir="${report-dir}">
-		 <fileset dir="${test-dir}/com/test">
-		<include name="**/*.java" />
+		 <fileset dir="${build-test}/com/test">
+		<include name="**/*.class" />
 		</fileset>
 		</batchtest>
            </junit>
