@@ -46,6 +46,7 @@
 
            <target name="test" depends="compile">                
            <echo>Performing unit-test</echo>
+           <mkdir dir="report" />
            <junit haltonfailure="no">
                <classpath>
                <pathelement path="${lib-dir}"/>
