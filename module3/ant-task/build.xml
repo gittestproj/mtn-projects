@@ -48,7 +48,7 @@
            <classpath refid="include-jars"/>
            <formatter type="plain"/>
            	<batchtest todir="${report-dir}">
-		 <fileset dir="${test-build-dir}">
+		 <fileset dir="${test-dir}">
 		<include name="**/*" />
 		</fileset>
 		</batchtest>
