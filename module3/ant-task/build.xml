@@ -54,7 +54,9 @@
                 <include name="**/*.jar"/>
                 </fileset>
                </classpath>
-              <classpath dir="${build-test}"/>
+              <classpath>
+               <pathelement path="${build-test}"/>
+              </classpath>            
            <formatter type="plain"/>
            	<batchtest todir="${report-dir}">
 		 <fileset dir="${test-dir}">
