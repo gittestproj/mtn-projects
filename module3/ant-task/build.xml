@@ -56,7 +56,7 @@
                </classpath>
            <formatter type="plain"/>
            	<batchtest todir="${report-dir}">
-		 <fileset dir="${build-test}/com/test">
+		 <fileset dir="${test-build-dir}/com/test">
 		<include name="**/*.class" />
 		</fileset>
 		</batchtest>
