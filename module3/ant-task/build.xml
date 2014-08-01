@@ -45,13 +45,14 @@
 
            <target name="test" depends="compile">                
            <echo>Performing unit-test</echo>
-           <junit haltonfailure="yes" printsummary="yes">
+           <junit haltonfailure="no" printsummary="yes">
                <classpath>
                <pathelement path="${lib-dir}"/>
                 <fileset dir="${lib-dir}">
                 <include name="**/*.jar"/>
                 </fileset>
                </classpath>
+           <formatter type="plain"/>
            <test name="com.test.UnitTest" outfile="result.txt"/>
            </junit>
            </target>
