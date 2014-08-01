@@ -62,7 +62,7 @@
            <mkdir dir="${dist-dir}" />
            <jar destfile="${dist-dir}/${date}-proj.jar" basedir="${build-dir}">
            <fileset dir="config"/>
-           <zipgroupfileset dir="lib" includes="apache*.jar"> 
+           <zipgroupfileset dir="lib" includes="apache*.jar"/> 
 	   <manifest>
            <attribute name="Main-Class" value="com.test.Project"/>
            </manifest>
