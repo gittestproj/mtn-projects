@@ -11,7 +11,7 @@
 	   <target name="init"> 
            <echo>Running target init</echo>
            <tstamp>
-           <format property="date" pattern="dd-MM-yyyy" locale="en,GB"/>
+           <format property="date" pattern="dd-MM-yyyy hh:mm:ss" locale="en,GB"/>
            </tstamp> 	
            </target>
  
