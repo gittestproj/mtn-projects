@@ -15,6 +15,13 @@
            <format property="date" pattern="dd-MM-yyyy hh:mm:ss" locale="en,GB"/>
            </tstamp> 	
            </target>
+
+          <path id="include-jars">
+           <fileset dir="${lib}">
+           <include name="**/*.jar"/>
+           </fileset>
+           <pathelement location="${build-dir}"/>
+          </path>
  
            <target name="clean" depends="init">
            <echo>Running target clean</echo> 
@@ -25,21 +32,11 @@
            <target name="compile" depends="clean">
            <mkdir dir="${build-dir}"/>
            <javac srcdir="${src-dir}" destdir="${build-dir}">
-               <classpath>
-               <pathelement path="${lib-dir}"/>
-                <fileset dir="${lib-dir}">
-                <include name="**/*.jar"/>
-                </fileset>
-               </classpath>
+               <classpath refid="include-jars">
            </javac> 		          
            <mkdir dir="${test-build-dir}" />
            <javac srcdir="${test-dir}" destdir="${test-build-dir}">
-               <classpath>
-               <pathelement path="${lib-dir}"/>
-                <fileset dir="${lib-dir}">
-                <include name="**/*.jar"/>
-                </fileset>
-               </classpath>
+               <classpath refid="include-jars">
            </javac>
            <echo>Compiling target</echo> 	
            </target>
@@ -48,16 +45,11 @@
            <echo>Performing unit-test</echo>
            <mkdir dir="report" />
            <junit haltonfailure="no">
-               <classpath>
-               <pathelement path="${lib-dir}"/>
-                <fileset dir="${lib-dir}">
-                <include name="**/*.jar"/>
-                </fileset>
-               </classpath>
+           <classpath refid="include-jars">
            <formatter type="plain"/>
            	<batchtest todir="${report-dir}">
-		 <fileset dir="${test-build-dir}/com/test">
-		<include name="**/*.class" />
+		 <fileset dir="${test-build-dir}">
+		<include name="**/*" />
 		</fileset>
 		</batchtest>
            </junit>
