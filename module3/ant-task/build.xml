@@ -7,7 +7,7 @@
           <property name="lib-dir" value="lib"/>
           <property name="test-dir" value="test"/>
           <property name="test-build-dir" value="build-test"/>	  
-          <property name "report-dir" value="report"/>
+          <property name="report-dir" value="report"/>
 
  	   <target name="init"> 
            <echo>Running target init</echo>
