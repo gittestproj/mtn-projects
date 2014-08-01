@@ -59,7 +59,13 @@
            <target name="mkdist" depends="test">
            <echo>Creating jar artifact</echo>
            <mkdir dir="${dist-dir}" />
-           <jar destfile="{$dist-dir}/${date}-proj.jar" basedir="${build-dir}" />
+           <jar destfile="{$dist-dir}/${date}-proj.jar" basedir="${build-dir}">
+           <zipgroupfileset dir="lib" includes="apache*.jar" />
+	   <manifest>
+           <attribute name="Main-Class" value="com.test.Project"/>
+           </manifest>
+
+           </jar>
        	   </target>
  
 </project>
