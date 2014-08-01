@@ -6,7 +6,6 @@
           <property name="src-dir" value="src"/>
           <property name="lib-dir" value="lib"/>
           <property name="test-dir" value="test"/>
-          <property name="test-build-dir" value="build-test"/>	  
           <property name="report-dir" value="report"/>
 
  	   <target name="init"> 
@@ -35,7 +34,7 @@
                <classpath refid="include-jars"/>
            </javac> 		          
            <mkdir dir="${test-build-dir}" />
-           <javac srcdir="${test-dir}" destdir="${test-build-dir}">
+           <javac srcdir="${test-dir}" destdir="${build-dir}">
                <classpath refid="include-jars"/>
            </javac>
            <echo>Compiling target</echo> 	
