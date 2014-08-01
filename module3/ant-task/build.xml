@@ -52,7 +52,7 @@
                 <include name="**/*.jar"/>
                 </fileset>
                </classpath>
-           <test name="com.test.UnitTest.java" outfile="result.txt"/>
+           <test name="com.test.UnitTest" outfile="result.txt"/>
            </junit>
            </target>
 
