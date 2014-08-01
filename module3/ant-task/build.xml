@@ -54,13 +54,10 @@
                 <include name="**/*.jar"/>
                 </fileset>
                </classpath>
-              <classpath>
-               <pathelement path="${build-test}"/>
-              </classpath>            
            <formatter type="plain"/>
            	<batchtest todir="${report-dir}">
-		 <fileset dir="${test-dir}">
-		<include name="**/*Test*.java" />
+		 <fileset dir="${test-dir}/com/test">
+		<include name="**/*.java" />
 		</fileset>
 		</batchtest>
            </junit>
