@@ -6,7 +6,7 @@
           <property name="src-dir" value="src"/>
           <property name="lib-dir" value="lib"/>
           <property name="test-dir" value="test"/>
-          <property name="test-build-dir" value="build/test"/>	  
+          <property name="test-build-dir" value="build-test"/>	  
 
 	   <target name="init"> 
            <echo>Running target init</echo>
@@ -45,7 +45,7 @@
 
            <target name="test" depends="compile">                
            <echo>Performing unit-test</echo>
-           <junit haltonfailure="no" printsummary="yes">
+           <junit haltonfailure="no">
                <classpath>
                <pathelement path="${lib-dir}"/>
                 <fileset dir="${lib-dir}">
@@ -61,7 +61,8 @@
            <echo>Creating jar artifact</echo>
            <mkdir dir="${dist-dir}" />
            <jar destfile="${dist-dir}/${date}-proj.jar" basedir="${build-dir}">
-           <zipgroupfileset dir="lib" includes="apache*.jar" />
+           <fileset dir="config"/>
+           <zipgroupfileset dir="lib" includes="apache*.jar"> 
 	   <manifest>
            <attribute name="Main-Class" value="com.test.Project"/>
            </manifest>
