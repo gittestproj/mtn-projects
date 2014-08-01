@@ -55,11 +55,11 @@
                 </fileset>
                </classpath>
            <formatter type="plain"/>
-           			<batchtest todir="${report-dir}">
-				<fileset dir="${test-dir}/com/test">
-					<include name="**/*Test*.java" />
-				</fileset>
-			</batchtest>
+           	<batchtest todir="${report-dir}">
+		 <fileset dir="${test-dir}">
+		<include name="**/*Test*.java" />
+		</fileset>
+		</batchtest>
            </junit>
            </target>
 
