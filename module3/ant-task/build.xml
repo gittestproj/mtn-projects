@@ -32,11 +32,11 @@
            <target name="compile" depends="clean">
            <mkdir dir="${build-dir}"/>
            <javac srcdir="${src-dir}" destdir="${build-dir}">
-               <classpath refid="include-jars">
+               <classpath refid="include-jars"/>
            </javac> 		          
            <mkdir dir="${test-build-dir}" />
            <javac srcdir="${test-dir}" destdir="${test-build-dir}">
-               <classpath refid="include-jars">
+               <classpath refid="include-jars"/>
            </javac>
            <echo>Compiling target</echo> 	
            </target>
@@ -45,7 +45,7 @@
            <echo>Performing unit-test</echo>
            <mkdir dir="report" />
            <junit haltonfailure="no">
-           <classpath refid="include-jars">
+           <classpath refid="include-jars"/>
            <formatter type="plain"/>
            	<batchtest todir="${report-dir}">
 		 <fileset dir="${test-build-dir}">
