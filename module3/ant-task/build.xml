@@ -7,8 +7,9 @@
           <property name="lib-dir" value="lib"/>
           <property name="test-dir" value="test"/>
           <property name="test-build-dir" value="build-test"/>	  
+          <property name "report-dir" value="report"/>
 
-	   <target name="init"> 
+ 	   <target name="init"> 
            <echo>Running target init</echo>
            <tstamp>
            <format property="date" pattern="dd-MM-yyyy hh:mm:ss" locale="en,GB"/>
@@ -53,7 +54,11 @@
                 </fileset>
                </classpath>
            <formatter type="plain"/>
-           <test name="com.test.UnitTest" outfile="result.txt"/>
+           			<batchtest todir="${report-dir}">
+				<fileset dir="${test-dir}/com/test">
+					<include name="**/*Test*.java" />
+				</fileset>
+			</batchtest>
            </junit>
            </target>
 
