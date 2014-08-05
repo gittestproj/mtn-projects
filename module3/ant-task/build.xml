@@ -45,12 +45,15 @@
            <mkdir dir="report" />
            <junit haltonfailure="no">
            <classpath refid="include-jars"/>
+
            <formatter type="plain"/>
+
            	<batchtest todir="${report-dir}">
 		 <fileset dir="${test-dir}">
 		<include name="**/*" />
 		</fileset>
 		</batchtest>
+
            </junit>
            </target>
 
