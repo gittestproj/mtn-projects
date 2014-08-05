@@ -1,6 +1,13 @@
 <?xml version="1.0"?> 
 <project name="BuildProject" default="compile">
 
+ 	   <target name="init"> 
+           <echo>Initializing</echo>
+
+           <tstamp>
+           <format property="date" pattern="dd-MM-yyyy hh:mm:ss" locale="en,GB"/>
+           </tstamp>
+    
           <property name="build-dir" value="build"/>
           <property name="dist-dir" value="dist"/>
           <property name="src-dir" value="src"/>
@@ -8,27 +15,26 @@
           <property name="test-dir" value="test"/>
           <property name="report-dir" value="report"/>
 
- 	   <target name="init"> 
-           <echo>Running target init</echo>
-           <tstamp>
-           <format property="date" pattern="dd-MM-yyyy hh:mm:ss" locale="en,GB"/>
-           </tstamp> 	
-           </target>
-
           <path id="include-jars">
            <fileset dir="${lib-dir}">
            <include name="**/*.jar"/>
            </fileset>
            <pathelement location="${build-dir}"/>
           </path>
- 
+
+           </target>
+
            <target name="clean" depends="init">
-           <echo>Running target clean</echo> 
+
+           <echo>Cleaning</echo> 
            <delete dir="${build-dir}" />
            <delete dir="${dist-dir}" />
+           <delete dir="${report-dir}" />
+
            </target> 
 		
            <target name="compile" depends="clean">
+           <echo>Compiling target</echo>
            <mkdir dir="${build-dir}"/>
            <javac srcdir="${src-dir}" destdir="${build-dir}">
                <classpath refid="include-jars"/>
@@ -37,7 +43,6 @@
            <javac srcdir="${test-dir}" destdir="${build-dir}">
                <classpath refid="include-jars"/>
            </javac>
-           <echo>Compiling target</echo> 	
            </target>
 
            <target name="test" depends="compile">                
